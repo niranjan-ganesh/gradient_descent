@@ -19,7 +19,7 @@ Z = f(X, Y)
 current_pos1 = (-1,1,f(-1,1))
 current_pos2 = (-1,-1,f(-1,-1))
 
-alpha = 0.15
+alpha = np.random.rand(0,1)
 
 fig = plt.figure()
 

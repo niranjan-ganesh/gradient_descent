@@ -1,1 +1,1 @@
-# gradient_descent
+This program can execute gradient descent algorithm for any cost function. Solve_Differential.py uses sympy to find the differentials of the functions which can be used in the Gradient_Descent.py to find the convergence point. Planning to update further improvements as it happens.

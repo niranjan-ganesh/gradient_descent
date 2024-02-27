@@ -45,6 +45,7 @@ while True:
 
     if np.linalg.norm(grad1) < 0.0001 and np.linalg.norm(grad2) < 0.0001:
         print("Gradient descent converged in",iter,"iterations at: (",current_pos1[0],",",current_pos1[1],")")
+        print("Learning rate:",alpha)
         break
 
     ax.plot_surface(X, Y, Z, cmap="viridis",zorder=0)

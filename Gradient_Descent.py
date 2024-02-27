@@ -19,12 +19,9 @@ Z = f(X, Y)
 current_pos1 = (-1,1,f(-1,1))
 current_pos2 = (-1,-1,f(-1,-1))
 
-alpha = 0.25
+alpha = 0.15
 
 fig = plt.figure()
-
-# positions1 = [current_pos1]
-# positions2 = [current_pos2]
 
 ax = plt.subplot(projection="3d",computed_zorder=False)
 
@@ -34,20 +31,20 @@ while True:
 
     iter = iter + 1
 
-    x_dash,y_dash = df(current_pos1[0],current_pos1[1])
-    x_new,y_new = current_pos1[0] - alpha*x_dash,current_pos1[1] - alpha*y_dash
+    x_dash1,y_dash1 = df(current_pos1[0],current_pos1[1])
+    x_new,y_new = current_pos1[0] - alpha*x_dash1,current_pos1[1] - alpha*y_dash1
     current_pos1 = x_new,y_new,f(x_new,y_new)
 
 
-    x_dash, y_dash = df(current_pos2[0], current_pos2[1])
-    x_new, y_new = current_pos2[0] - alpha * x_dash, current_pos2[1] - alpha * y_dash
+    x_dash2, y_dash2 = df(current_pos2[0], current_pos2[1])
+    x_new, y_new = current_pos2[0] - alpha * x_dash2, current_pos2[1] - alpha * y_dash2
     current_pos2 = x_new, y_new, f(x_new, y_new)
 
-    grad1 = df(current_pos1[0], current_pos1[1])
-    grad2 = df(current_pos2[0], current_pos2[1])
+    grad1 = (x_dash1,y_dash1)
+    grad2 = (x_dash2,y_dash2)
 
     if np.linalg.norm(grad1) < 0.0001 and np.linalg.norm(grad2) < 0.0001:
-        print("Gradient descent converged in",iter,"iterations at:",current_pos1[0],current_pos1[1])
+        print("Gradient descent converged in",iter,"iterations at: (",current_pos1[0],",",current_pos1[1],")")
         break
 
     ax.plot_surface(X, Y, Z, cmap="viridis",zorder=0)
